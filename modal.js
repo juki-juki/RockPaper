@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('saveUserName').addEventListener('click', function () {
         const newName = newUserNameInput.value;
 
-        // Check if the user input is empty
+        
         if (!newName.trim()) {
             playerTitle.textContent = "Lodi Cakes";
         } else {
