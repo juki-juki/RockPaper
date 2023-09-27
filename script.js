@@ -206,7 +206,6 @@ userButtons.forEach(button => {
             } else {
                 drawScore++;
             }
-
             updateScore();
             enableUserButtons();
 
@@ -216,7 +215,6 @@ userButtons.forEach(button => {
                 resultDiv.textContent += " The game is over!";
                 disableUserButtons();
             }
-
             animateComputerChoice(computerSelection);
         }, 1500);
     });
