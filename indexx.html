@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    
+    
+    
+    <div class="container mt-5 text-center">
+        <h1 class="text-primary">Rock Paper Scissors</h1>
+    
+      
+        <div class="row">
+    
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title" id="player-title">Player</h5>
+                        <p class="card-text h3"><span id="player-score">0</span></p>
+                    </div>
+                </div>
+            </div>
+            
+    
+         
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Draw</h5>
+                        <p class="card-text h3"><span id="draw-score">0</span></p>
+                    </div>
+                </div>
+            </div>
+    
+           
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Computer</h5>
+                        <p class="card-text h3"><span id="computer-score">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Your Pick</h5>
+                        <div class="image-holder">
+                            
+                            <div class="image-container">
+                                <img src="" alt="Player's Pick" id="player-pick-image" class="img-fluid rounded-circle" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Computer's Pick</h5>
+                        <div class="image-holder">
+                            
+                            <div class="image-container">
+                                <img src="" alt="Computer's Pick" id="computer-pick-image" class="img-fluid rounded-circle" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <p class="text-center">Choose your move:</p>
+        <div class="text-center user-choices">
+            <button id="rock-user" class="btn btn-outline-primary">
+                <img src="images/rock.png" alt="Rock" width="100" height="100">
+                <br>Rock
+            </button>
+            <button id="paper-user" class="btn btn-outline-primary">
+                <img src="images/paper.png" alt="Paper" width="100" height="100">
+                <br>Paper
+            </button>
+            <button id="scissors-user" class="btn btn-outline-primary">
+                <img src="images/scissors.png" alt="Scissors" width="100" height="100">
+                <br>Scissors
+            </button>
+        </div>
+        </div>
+        <div class="result mt-4 text-center" id="result"></div>
+    </div>
+    
+    <div class="modal fade" id="changeNameModal" tabindex="-1" aria-labelledby="changeNameModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changeNameModalLabel">Change Your Name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="newUserName" class="form-control" placeholder="Enter your new name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveUserName">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="center-button">
+        <button id="play-again" class="btn btn-primary">Reset</button>
+    </div>
+    <div id="draw-popup" class="popup">
+        <img src="images/meme.png" alt="" />
+        <p class="tie-message">It's a tie!</p>
+    </div>
+    <div id="win-popup" class="popup">
+        <p class="win-message">You win!</p>
+        <img src="" alt="Win Image" id="win-image" />
+    </div>
+    <div id="lose-popup" class="popup">
+        <p class="lose-message">You lost!</p>
+        <img src="" alt="Lose Image" id="lose-image" />
+    </div>
+    <div id="champion-popup" class="popup" style="display: none;">
+        <img src="images/giphy.gif" alt="Champion GIF">
+        <p>Winner</p>
+    </div>
+    <div id="computer-wins-popup" class="popup" style="display: none;">
+        <img src="images/computer.gif" alt="Computer Wins GIF">
+        <p>Computer Wins</p>
+    </div>
+    
+    <div id="overlay" class="overlay"></div>
+
+    <div id="champion-popup" class="popup" style="display: none;">
+        <img src="images/giphy.gif" alt="Champion GIF">
+        <p>Champion</p>
+        <button id="play-again-champion">Play Again</button>
+    </div>
+    
+    <div id="computer-wins-popup" class="popup" style="display: none;">
+        <img src="images/computer.gif" alt="Computer Wins GIF">
+        <p>Computer Wins</p>
+        <button id="play-again-computer">Play Again</button>
+    </div>
+    
+    
+    
+    
+
+
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    
+    <script src="script.js"></script>
+    <script src="modal.js"></script>
+</body>
+</html>
